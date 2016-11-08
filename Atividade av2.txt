@@ -1,0 +1,13 @@
+Vetor - para guardar os numeros gerados aleatorio
+matriz - para guardar os valores dos vetores 
+Programação estruturada(Modular)- para organizar o codigo e ficar facil o entendimento.
+Passagem de parâmetros- Foi usado para diminuir tamanho de codigo e não precisar ficar reescrevendo codigo.
+Ordenação de Vetores - Usado para organizar sorteio em ordem crescente.
+----------------------------------------------------------------------------------------------------
+Strings - Não iria utilizar pois utilizamos printf nas frases.
+Ponteiros - Não utilizamos, não tive ideia de como implementar.
+Alocação dinâmica de memória - Não utilizamos, talves por nem lembrar de verificar se a memoria ram tem espaço para nosso programa.
+pesquisa em vetores - Não utilizamos, más poderia ser utilizado para pesquisa dos maiores valores.
+estruturas - Não utilizamos, não tive ideia de como implementar.
+pilhas - Não utilizamos, más poderia utilizar para mostrar os top 5 maiores valores.
+Filas - Não utilizamos, não temos ideia de como implementar.
