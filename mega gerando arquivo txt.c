@@ -84,7 +84,7 @@ num[j]=aux;
 //printf("\n");
 }
 
-void inicio(){
+static inicio(){
 	int i, j, aux;
 int ji,in,jogo,vet[6000],tamanho = 50,l,c;
 
