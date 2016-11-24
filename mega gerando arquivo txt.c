@@ -11,23 +11,34 @@
 * Rafael Ferreira - 2215112127
 */
 
-void gravar(int ch[6],FILE *p_arq){
+
+
+void gravar(int ch[6],int j,FILE *p_arq){
 	
 	int i;
 	p_arq = fopen("Sorteio Mega.txt","a");
+	fprintf(p_arq,"SORTEIO: [%.4i] = ",j);
+	
+		
+	
 	for (i=0; i <= 5;i++){
-		 fprintf(p_arq,"%d ", ch[i]);
+		 fprintf(p_arq,"%.2d ", ch[i]);
+		 printf("%.2d ", ch[i]);
 		}
 		fprintf(p_arq,"\n");
+		printf("\n");
 		
 		fclose(p_arq);
 }
-void ler(int ch[6], FILE *p_arq){
+void ler(){
+	FILE *p_arq;
 	
+	int ch[3001];
 	p_arq = fopen("Sorteio Mega.txt","r");
-	while (fgets(ch,200,p_arq)!=NULL){
+	
+	while (fgets(ch,100,p_arq)!=NULL){
 			
-		 	printf("\n Sorteio recuperada= ");
+		 	
 	 		puts(ch);
 	 		
 	 		
@@ -73,12 +84,11 @@ num[j]=aux;
 //printf("\n");
 }
 
+void inicio(){
+	int i, j, aux;
+int ji,in,jogo,vet[6000],tamanho = 50,l,c;
 
-int main() {
-int i, j, aux;
-int ji,in,jogo,vet[50],tamanho = 50,l,c;
-
-int numero[30][6],matriz[60][6],x,y;
+int numero[30000][6],matriz[3000][6],x,y;
 FILE *p_arq;
  	
  	p_arq = fopen("Sorteio Mega.txt","a");
@@ -87,18 +97,12 @@ FILE *p_arq;
  	{
  		printf("Erro na abertura do arquivo.");
  		getch();
- 		return 1;
+ 		return 0;
 	 }
 
 srand(time(0));
 
-printf("\t|------------------------------------------------------------|\n");
-printf("\t|------------------------MEGA SENA---------------------------|\n");
-printf("\t|------------------------------------------------------------|\n");
 
-
-printf("\tSORTEIO DOS NUMEROS!!!\n");
-printf("\n");printf("\n");
 
 for(i=1;i<3000;i++){
 		for(j=0; j<6; j++) { 
@@ -120,22 +124,53 @@ numero[i][5]=vet[5];
 
 		matriz[i][j]=numero[i][j];
 
-//printf("SORTEIO: [%.4i] = %.2i - %.2i - %.2i - %.2i - %.2i - %.2i",i,numero[i][0],numero[i][1],numero[i][2],numero[i][3],numero[i][4],numero[i][5]);
+
 
 
 
 ordenar(vet);
-gravar(vet,p_arq);
-ler(vet,p_arq);
+gravar(vet,i,p_arq);
+	
 
-printf("\n");
+}
 }
 
+
+int main() {
+
+
+int valor;
+
+	do
+	{
+	
+	printf("======Menu=======\n");
+	printf("Sair do Menu = 0\n");
+	printf("Gerar Sorteio = 1\n");
+	printf("Ver Sorteios = 2\n");
+	
+	scanf("%d",&valor);
+	
+	switch(valor){
+		case 1:
+			printf("\t|------------------------------------------------------------|\n");
+		printf("\t|------------------------MEGA SENA---------------------------|\n");
+		printf("\t|------------------------------------------------------------|\n");
 		
-
-
-//nrepetidos(matriz);
-
+		
+		printf("\tSORTEIO DOS NUMEROS!!!\n");
+			inicio();
+			break;
+		case 2:
+			ler();
+			break;
+		case 0:
+			return 0;
+			break;
+		default:
+                printf("Digite uma opcao valida\n");
+	}
+	} while(valor);
 
 system("pause");
 return 0;
