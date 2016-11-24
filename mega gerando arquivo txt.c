@@ -18,7 +18,7 @@ void gravar(int ch[6],int j,FILE *p_arq){
 	int i;
 	p_arq = fopen("Sorteio Mega.txt","a");
 	fprintf(p_arq,"SORTEIO: [%.4i] = ",j);
-	
+	printf("SORTEIO: [%.4i] = ",j);
 		
 	
 	for (i=0; i <= 5;i++){
@@ -84,6 +84,26 @@ num[j]=aux;
 //printf("\n");
 }
 
+void Excluir(){
+	FILE *p_arq;
+	p_arq = fopen("Sorteio Mega.txt","w");
+	system("cls");
+	if (p_arq == NULL)
+ 	{
+ 		printf("Erro na abertura do arquivo.");
+ 		getch();
+ 		return 1;
+	 }
+	 else
+	{
+		printf("\n \n \nApagados com sucesso !!!\n\n\n");
+	}
+	
+	
+	fclose(p_arq);
+	
+}
+
 static inicio(){
 	int i, j, aux;
 int ji,in,jogo,vet[6000],tamanho = 50,l,c;
@@ -97,7 +117,7 @@ FILE *p_arq;
  	{
  		printf("Erro na abertura do arquivo.");
  		getch();
- 		return 0;
+ 		return 1;
 	 }
 
 srand(time(0));
@@ -148,6 +168,7 @@ int valor;
 	printf("Sair do Menu = 0\n");
 	printf("Gerar Sorteio = 1\n");
 	printf("Ver Sorteios = 2\n");
+	printf("Apagar Sorteios = 3\n");
 	
 	scanf("%d",&valor);
 	
@@ -166,6 +187,9 @@ int valor;
 			break;
 		case 0:
 			return 0;
+			break;
+		case 3:
+			Excluir();
 			break;
 		default:
                 printf("Digite uma opcao valida\n");
